@@ -15,9 +15,10 @@ def result():
     else:
         #Getting from the POST method
         url = request.form.get("url")
+
     #Error Handling
     if url == " " or not url :
-        return "Error: No url Found!"
+        return render_template("error.html", error = "No url Found!")
  
     #TODO: Add functionality to perform OCR and display resutls
     return url
