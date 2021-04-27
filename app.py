@@ -11,7 +11,8 @@ def root():
 
     return render_template("index.html")
 
-@app.route('/resutles')
-def resutles():
+@app.route('/result', methods=["POST"])
+def result():
+    url = request.form.get("url")
     #TODO: Add functionality to perform OCR and display resutls
-    return "Lorem ipsum sit amor dit"
+    return url
