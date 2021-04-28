@@ -1,5 +1,14 @@
 from flask import Flask, render_template, request
+import pytesseract as tess
+from PIL import Image
+
 app = Flask(__name__)
+
+def image_to_text(url):
+    img = Image.open(url)
+    text = tess.image_to_string(img)
+    return text
+
 
 @app.route('/')
 def root():
@@ -21,4 +30,6 @@ def result():
         return render_template("error.html", error = "No url Found!")
  
     #TODO: Add functionality to perform OCR and display resutls
-    return url
+    text = image_to_text(url)
+    return text
+
