@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request
 import pytesseract as tess
+import requests
 from PIL import Image
 
 app = Flask(__name__)
 
 def image_to_text(url):
-    img = Image.open(url)
+    img = Image.open(requests.get(url, stream=True).raw)
     text = tess.image_to_string(img)
     return text
 
