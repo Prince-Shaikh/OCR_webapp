@@ -33,5 +33,5 @@ def result():
  
     text = image_to_text(url)
     print(text)
-    return render_template("result.html", result = text)
+    return render_template("result.html", result = text.split('\n'), url = url)
 
