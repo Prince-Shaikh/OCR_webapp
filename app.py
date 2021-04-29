@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import pytesseract as tess
+tess.pytesseract.tesseract_cmd = r'C:\Users\Moiz\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
 import requests
 from PIL import Image
 
@@ -30,7 +31,7 @@ def result():
     if url == " " or not url :
         return render_template("error.html", error = "No url Found!")
  
-    #TODO: Add functionality to perform OCR and display resutls
     text = image_to_text(url)
-    return text
+    print(text)
+    return render_template("result.html", result = text)
 
