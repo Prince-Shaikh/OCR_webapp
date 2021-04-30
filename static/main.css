@@ -2,5 +2,18 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #444;
+    background-color:#fcfcfc;
+  }
+  h1{
+      font-size: 3em;
+      text-align: center;
+      text-transform: capitalize;
+      font-weight: 400;
+  }
+  .top-div{
+      margin-top: 20%;
+      align-items: center;
+  }
+  .form-control{
+      border-radius: 20px;
   }
