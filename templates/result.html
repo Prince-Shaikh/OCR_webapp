@@ -9,12 +9,14 @@
     <title>OCR Result</title>
 </head>
 <body>
-    <img src= {{url}} alt=" Image">
+    <div class="result-top text-center">
+        <img class="results-img" src= {{url}} alt=" Image">
 
-    {% for r in result %}
-     {% if r!="" and r!=" " %}
-        <p>{{r}}</p>
-     {% endif %}
-    {% endfor %}
+        {% for r in result %}
+        {% if r!="" and r!=" " %}
+            <p>{{r}}</p>
+        {% endif %}
+        {% endfor %}
+    </div>
 </body>
 </html>

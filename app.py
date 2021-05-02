@@ -31,7 +31,10 @@ def result():
     if url == " " or not url :
         return render_template("error.html", error = "No url Found!")
  
-    text = image_to_text(url)
+    try:
+        text = image_to_text(url)
+    except:
+        return render_template("error.html", error = "Invalid Url")
     print(text)
     return render_template("result.html", result = text.split('\n'), url = url)
 
