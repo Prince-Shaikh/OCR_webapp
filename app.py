@@ -20,6 +20,7 @@ def root():
 @app.route('/result', methods=["POST", "GET"])
 def result():
     url = ""
+    results = ""
     #getting url ussing a get request
     if request.method == "GET":
         url = request.args.get("url"," ")
@@ -31,10 +32,15 @@ def result():
     if url == " " or not url :
         return render_template("error.html", error = "No url Found!")
  
+    final_text = []
     try:
         text = image_to_text(url)
+        results = text.split('\n')
+        for r in results:
+            if r != "" and r !=" " and r !="  " and r !="   ":
+                final_text.append(r)
     except:
         return render_template("error.html", error = "Invalid Url")
     print(text)
-    return render_template("result.html", result = text.split('\n'), url = url)
+    return render_template("result.html", result = text, url = url)
 
