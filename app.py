@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import pytesseract as tess
-tess.pytesseract.tesseract_cmd = r'C:\Users\Moiz\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
+#tess.pytesseract.tesseract_cmd = r'C:\Users\Moiz\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
+tess.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
 import requests
 from PIL import Image
 
